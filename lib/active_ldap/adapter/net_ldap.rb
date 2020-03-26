@@ -1,6 +1,7 @@
 require 'digest/md5'
 
 require 'active_ldap/adapter/base'
+require 'net/ldap/auth_adapter/gss_spnego'
 
 module ActiveLdap
   module Adapter
@@ -18,6 +19,7 @@ module ActiveLdap
         :ssl => :simple_tls,
         :tls => :start_tls,
         :plain => nil,
+        :gss => :gss_spnego,
       }
 
       def connect(options={})
